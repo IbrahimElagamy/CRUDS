@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="stylesheet" href="CSS/all.css">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="CSS/main.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <main>
+        <div class="d-flex justify-content-center p-1 px-5 my-5">
+            <h1>CRUDS</h1>
+        </div>
+
+        <div class="container py-5 inputs">
+            <div class="d-flex justify-content-center">
+                <h2><i class="fa-solid fa-bookmark"></i> PRODUCT MANAGEMENT SYSTEM <i
+                        class="fa-solid fa-bookmark"></i></h2>
+            </div>
+            <div class="row">
+
+                <div class="form-floating col-md-12 ">
+                    <input class="form-control my-2 " type="text" id="title" placeholder="Title">
+                    <label for="title">Title</label>
+                </div>
+                <div class="form-floating col-md-4 my-2">
+                    <input onkeyup="getTotal()" class="form-control my-2" type="number" id="price" placeholder="Price">
+                    <label for="price" class="px-4">Price</label>
+                </div>
+                <div class="form-floating col-md-2 my-2">
+                    <input onkeyup="getTotal()" class="form-control my-2" type="number" id="taxes" placeholder="Taxes">
+                    <label for="taxes" class="px-4">Taxes</label>
+                </div>
+                <div class="form-floating col-md-2 my-2">
+                    <input onkeyup="getTotal()" class="form-control my-2" type="number" id="ads" placeholder="Ads">
+                    <label for="ads" class="px-4">Ads</label>
+                </div>
+                <div class="form-floating col-md-2 my-2">
+                    <input onkeyup="getTotal()" class="form-control my-2" type="number" id="discount" placeholder="Discount">
+                    <label for="discount" class="px-4">Discount</label>
+                </div>
+                <div class="col-md-2 d-flex align-items-center mt-3">
+                    <p id="total" style="background-color: #eb1d36;" class=" py-1 px-4" > Total :  </p>
+                </div>
+                <div class="form-floating col-md-12 my-2">
+                    <input class="form-control my-2" type="number" id="count" placeholder="Count">
+                    <label id="labelCount" for="count" class="px-4">Count</label>
+                </div>
+                <div class="form-floating col-md-12 my-2">
+                    <input list="categoryList" class="form-control my-2" type="text" id="category"
+                        placeholder="Category">
+                    <label for="category" class="px-4">Category</label>
+                    <datalist id="categoryList">
+                        <option value="TV"></option>
+                        <option value="Laptop"></option>
+                        <option value="Screen"></option>
+                        <option value="Mobile"></option>
+                    </datalist>
+                </div>
+                <div>
+                    <button onclick="addProduct()" class="btn w-100 btn-submit my-2"
+                    id="submitBtn">Create</button>
+                </div>
+                <div class="form-floating col-md-12 my-2">
+                    <input onkeyup="searchData(this.value)" class="form-control my-2" type="search" id="search" placeholder="Search">
+                    <label for="search" class="px-4">Search</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button onclick="getSearchMood(this.id)" id="searchTitle" class="btn btnSearch w-100 my-1"> Search By Title <i class="fa fa-search mx-1"></i> </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button onclick="getSearchMood(this.id)" id="searchCategory" class="btn btnSearch w-100 my-1"> Search By Category <i class="fa fa-search mx-1"></i> </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="btnDeleteAll">
+                    
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row w-100 my-5">
+                <table class="table table my-1 mb-5 text-center bg-light ">
+                    <thead>
+                        <tr>
+                            <th class="text-capitalize">ID</th>
+                            <th class="text-capitalize">Title</th>
+                            <th class="text-capitalize">Price</th>
+                            <th class="text-capitalize">Taxes</th>
+                            <th class="text-capitalize">ADs</th>
+                            <th class="text-capitalize">Discount</th>
+                            <th class="text-capitalize">Total</th>
+                            <th class="text-capitalize">Category</th>
+                            <th class="text-capitalize">Update</th>
+                            <th class="text-capitalize">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableContent">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="JS/index.js"> </script>
+</body>
+
+</html>
